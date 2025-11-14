@@ -74,3 +74,7 @@ npm start
 ```
 
 To run a local development server that serves the basic demo located in `demo/index.html`
+
+## Release
+
+This project uses [semantic-release](https://semantic-release.gitbook.io/semantic-release/) to automate the package release process.
