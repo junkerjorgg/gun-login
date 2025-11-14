@@ -31,12 +31,12 @@
     "@open-wc/eslint-config": "^12.0.3",
     "@open-wc/testing": "^4.0.0",
     "@storybook/addon-a11y": "^7.6.20",
-    "@storybook/addon-essentials": "^7.6.20",
+    "@storybook/addon-essentials": "^8.6.14",
     "@storybook/addon-links": "^7.6.20",
-    "@storybook/web-components": "^7.6.20",
+    "@storybook/web-components": "^10.0.7",
     "@web/dev-server": "^0.4.6",
-    "@web/storybook-builder": "^0.1.21",
-    "@web/storybook-framework-web-components": "^0.1.3",
+    "@web/storybook-builder": "^0.2.3",
+    "@web/storybook-framework-web-components": "^0.2.1",
     "@web/test-runner": "^0.18.3",
     "eslint": "^8.57.1",
     "eslint-config-prettier": "^9.1.2",
@@ -44,7 +44,7 @@
     "lint-staged": "^15.5.2",
     "prettier": "^3.6.2",
     "semantic-release": "^24.2.9",
-    "storybook": "^7.6.20"
+    "storybook": "^10.0.7"
   },
   "customElements": "custom-elements.json",
   "eslintConfig": {
