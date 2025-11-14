@@ -1,3 +1,4 @@
 {
+  "extends": "@bubkoo/semantic-release-config",
   "branches": ["main"]
 }
