@@ -4,8 +4,10 @@
 name: Publish to NPM
 
 on:
-  release:
-    types: [created]
+  workflow_run:
+    workflows: [Release]
+    types:
+      - completed
 
 permissions:
   id-token: write # Required for OIDC against public npm registry
@@ -25,6 +27,7 @@ jobs:
   publish-npm:
     needs: build
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
