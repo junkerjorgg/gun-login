@@ -17,6 +17,7 @@
     "lint": "eslint --ext .js,.html . --ignore-path .gitignore && prettier \"**/*.js\" --check --ignore-path .gitignore",
     "format": "eslint --ext .js,.html . --fix --ignore-path .gitignore && prettier \"**/*.js\" --write --ignore-path .gitignore",
     "prepare": "husky",
+    "semantic-release": "semantic-release",
     "test": "web-test-runner --coverage",
     "test:watch": "web-test-runner --watch",
     "storybook": "npm run analyze -- --exclude dist && storybook dev -p 8080",
@@ -60,6 +61,33 @@
     "*.js": [
       "eslint --fix",
       "prettier --write"
+    ]
+  },
+  "publishConfig": {
+    "provenance": true
+  },
+  "release": {
+    "branches": [
+      "master"
+    ],
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      [
+        "@semantic-release/npm",
+        {
+          "npmPublish": false
+        }
+      ],
+      [
+        "@semantic-release/git",
+        {
+          "assets": [
+            "package.json"
+          ]
+        }
+      ],
+      "@semantic-release/github"
     ]
   }
 }
