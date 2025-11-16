@@ -3,7 +3,7 @@
   "description": "Webcomponent gun-login following open-wc recommendations",
   "license": "MIT",
   "author": "gun-login",
-  "version": "1.3.1",
+  "version": "1.5.0",
   "type": "module",
   "main": "index.js",
   "module": "index.js",
@@ -68,29 +68,5 @@
   },
   "publishConfig": {
     "provenance": false
-  },
-  "release": {
-    "branches": [
-      "main"
-    ],
-    "plugins": [
-      "@semantic-release/commit-analyzer",
-      "@semantic-release/release-notes-generator",
-      [
-        "@semantic-release/npm",
-        {
-          "npmPublish": false
-        }
-      ],
-      [
-        "@semantic-release/git",
-        {
-          "assets": [
-            "package.json"
-          ]
-        }
-      ],
-      "@semantic-release/github"
-    ]
   }
 }
