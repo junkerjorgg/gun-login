@@ -1,0 +1,17 @@
+# [1.6.0](https://github.com/junkerjorgg/gun-login/compare/v1.5.0...v1.6.0) (2025-11-16)
+
+
+### Features
+
+* fix indentation ([3dae390](https://github.com/junkerjorgg/gun-login/commit/3dae39001acbfd9bbe461f47bf002a5459496be6))
+* **GunLogin:** submit login form when user presses Enter key ([f832cbd](https://github.com/junkerjorgg/gun-login/commit/f832cbd719366009768e0ad3004777860cd91fbf))
+* **npm-publish:** disable file by changing to on workflow_dispatch ([56de9e4](https://github.com/junkerjorgg/gun-login/commit/56de9e4446e708fee496807498f040f6d92ac355))
+* **npm-publish:** publish to NPM when a new release is published in Github ([3456861](https://github.com/junkerjorgg/gun-login/commit/3456861dd325a7306f5ffc06b7cacf460954ae56))
+* **package:** install semantic-release config ([a7ad73c](https://github.com/junkerjorgg/gun-login/commit/a7ad73ccf89edd9663960247779efc5e4a8b0ada))
+* **package:** remove release config ([32efcd4](https://github.com/junkerjorgg/gun-login/commit/32efcd41fca268a1767522affbab8bb951940fca))
+* **README:** trigger release ([3e1be30](https://github.com/junkerjorgg/gun-login/commit/3e1be30ee163275b91cc5a866a8abc4970a1c149))
+* **release:** change to npm install to permit correct packages in ci ([b4a02f4](https://github.com/junkerjorgg/gun-login/commit/b4a02f46d72afb2c94b8a9addd2aae49a57efa46))
+* **release:** remove npm publish since semantic-release should provide it ([debae75](https://github.com/junkerjorgg/gun-login/commit/debae75287155c6684084aafba0f023a639dbf4a))
+* **release:** set up .npmrc for publishing to NPM ([83ec657](https://github.com/junkerjorgg/gun-login/commit/83ec657856e13e5bcc2cd3eebc82b5269416359f))
+* **release:** test in ci & use NPM_TOKEN ([91c4a54](https://github.com/junkerjorgg/gun-login/commit/91c4a546edfca2853fc7cc83138d4da19fb291db))
+* remove npm-publish.yml, because it's supposedly handled by semantic-release ([973524b](https://github.com/junkerjorgg/gun-login/commit/973524b8e60beb3e33a3d7c3166b9f46af3259fe))
