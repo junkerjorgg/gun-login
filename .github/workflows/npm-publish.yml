@@ -19,7 +19,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - run: npm ci --omit=optional
+      - run: npm install
       - run: npm test
 
   publish-npm:
@@ -31,5 +31,5 @@ jobs:
         with:
           node-version: 22
           registry-url: https://registry.npmjs.org/
-      - run: npm ci --omit=optional
+      - run: npm install
       - run: npm publish
