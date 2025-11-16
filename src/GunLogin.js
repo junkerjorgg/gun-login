@@ -131,6 +131,7 @@ export class GunLogin extends LitElement {
    */
   aliasChanged(event) {
     this.alias = event.target.value;
+    this.handleEnterKey(event);
   }
 
   /**
@@ -141,6 +142,23 @@ export class GunLogin extends LitElement {
    */
   passwordChanged(event) {
     this.password = event.target.value;
+    this.handleEnterKey(event);
+  }
+
+  /**
+   * Enter key event handler
+   *
+   * @param {Event} event
+   * @memberof GunLogin
+   */
+  handleEnterKey(event) {
+    if (event.key === 'Enter') {
+      if (this.signInHidden) {
+        this.signUp();
+      } else {
+        this.signIn();
+      }
+    }
   }
 
   /**
