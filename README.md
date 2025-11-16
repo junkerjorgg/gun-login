@@ -1,6 +1,6 @@
 # \<gun-login>
 
-This webcomponent follows the [open-wc](https://github.com/open-wc/open-wc) recommendation.
+This web component follows the [open-wc](https://github.com/open-wc/open-wc) recommendation.
 
 ## Installation
 
