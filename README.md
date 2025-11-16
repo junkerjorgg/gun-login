@@ -15,7 +15,7 @@ npm i gun-login
   import 'gun-login/gun-login.js';
 </script>
 
-<gun-login></gun-login>
+<gun-login .gun=${gun} .user=${user}></gun-login>
 ```
 
 ## Linting and formatting
