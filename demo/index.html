@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en-GB">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
@@ -9,22 +10,28 @@
     }
   </style>
 </head>
+
 <body>
   <div id="demo"></div>
 
   <script type="module">
     import { html, render } from 'lit';
+    // eslint-disable-next-line import/no-unresolved
+    import GUN from 'https://cdn.skypack.dev/gun';
+    // eslint-disable-next-line no-unused-vars, import/no-unresolved
+    import SEA from 'https://cdn.skypack.dev/gun/sea';
     import '../gun-login.js';
 
-    const header = 'Hello owc World!';
+    const gun = GUN();
+    const user = gun.user();
+
     render(
       html`
-        <gun-login .header=${header}>
-          some light-dom
-        </gun-login>
+        <gun-login .gun=${gun} .user=${user}></gun-login>
       `,
       document.querySelector('#demo')
     );
   </script>
 </body>
+
 </html>

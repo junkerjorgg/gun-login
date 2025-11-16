@@ -22,8 +22,10 @@ export class GunLogin extends LitElement {
     `;
   }
 
-  updated() {
-    this.gun.on('auth', this.userIsLoggedIn.bind(this));
+  firstUpdated() {
+    // TODO: This does not seem to work, so leaving it out for now.
+    // this.gun.on('auth', this.userIsLoggedIn.bind(this));
+    // this.gun.on('leave', this.userIsLoggedOut.bind(this));
     if (this.user.is) {
       this.userIsLoggedIn();
     } else {
@@ -34,54 +36,61 @@ export class GunLogin extends LitElement {
   render() {
     return html`
       <main>
-        <div>
-          <span id="user-pass" ?hidden=${this.userPassHidden}>
-            <input
-              id="alias"
-              placeholder="username"
-              @keyup="${this.aliasChanged}"
-            />
-            <input
-              id="pass"
-              type="password"
-              placeholder="password"
-              @keyup="${this.passwordChanged}"
-            />
-          </span>
+        <form autocomplete="on">
+          <div>
+            <span id="user-pass" ?hidden=${this.userPassHidden}>
+              <input
+                id="alias"
+                type="text"
+                placeholder="username"
+                autocomplete="username"
+                @keyup="${this.aliasChanged}"
+              />
+              <input
+                id="pass"
+                type="password"
+                placeholder="password"
+                autocomplete="${this.signInHidden
+                  ? 'current-password'
+                  : 'new-password'}"
+                @keyup="${this.passwordChanged}"
+              />
+            </span>
 
-          <span id="sign-in" ?hidden=${this.signInHidden}>
-            <input
-              id="in"
-              type="button"
-              value="sign in"
-              @click="${this.signIn}"
-            />
-            <br />
-            <a href="#" id="switch-to-sign-up" @click="${this.switchToSignUp}" }
-              >sign up instead</a
-            >
-          </span>
+            <span id="sign-in" ?hidden=${this.signInHidden}>
+              <input
+                id="in"
+                type="button"
+                value="sign in"
+                @click="${this.signIn}"
+              />
+              <br />
+              <a href="#" id="switch-to-sign-up" @click="${this.switchToSignUp}"
+                >sign up instead</a
+              >
+            </span>
 
-          <span id="sign-up" ?hidden=${this.signUpHidden}>
-            <input
-              id="up"
-              type="button"
-              value="sign up"
-              @click="${this.signUp}"
-            />
-            <br />
-            <a href="#" id="switch-to-sign-in" @click="${this.switchToSignIn}"
-              >sign in instead</a
-            >
-          </span>
-        </div>
-        <input
-          id="sign-out"
-          ?hidden=${this.signOutHidden}
-          type="button"
-          value="sign out"
-          @click="${this.signOut}"
-        />
+            <span id="sign-up" ?hidden=${this.signUpHidden}>
+              <input
+                id="up"
+                type="button"
+                value="sign up"
+                @click="${this.signUp}"
+              />
+              <br />
+              <a href="#" id="switch-to-sign-in" @click="${this.switchToSignIn}"
+                >sign in instead</a
+              >
+            </span>
+          </div>
+          <input
+            id="sign-out"
+            ?hidden=${this.signOutHidden}
+            type="button"
+            value="sign out"
+            @click="${this.signOut}"
+          />
+        </form>
       </main>
     `;
   }
@@ -100,7 +109,7 @@ export class GunLogin extends LitElement {
    * @memberof GunLogin
    */
   signIn() {
-    this.user.auth(this.alias, this.password);
+    this.user.auth(this.alias, this.password, this.userIsLoggedIn.bind(this));
   }
 
   /**
@@ -109,6 +118,8 @@ export class GunLogin extends LitElement {
    */
   signOut() {
     this.user.leave();
+    // TODO: See if there's a way to detect when logout is complete.  The docs at https://gun.eco/docs/User#unexpected-behavior say:
+    // "There is no callback called at this time to confirm successful logging out. Personal recommendation of the author (@dletta) of this part of the documentation is to check if user._.sea exists after leave is called. If it no longer contains a keypair, you are successfully logged out. It should be 'undefined' and a truth check would come back false."
     this.userIsLoggedOut();
   }
 
