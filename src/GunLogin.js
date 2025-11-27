@@ -56,16 +56,14 @@ export class GunLogin extends LitElement {
       <main>
         <form autocomplete="on" @submit="${this._handleFormSubmit}">
           <div>
-            <span id="user-pass" ?hidden=${this.userPassHidden}>
+            <span ?hidden=${this.userPassHidden}>
               <input
-                id="username"
                 type="text"
                 placeholder="username"
                 autocomplete="username"
                 @input="${this.usernameChanged}"
               />
               <input
-                id="pass"
                 type="password"
                 placeholder="password"
                 autocomplete="${this.signInHidden
@@ -75,24 +73,19 @@ export class GunLogin extends LitElement {
               />
             </span>
 
-            <span id="sign-in" ?hidden=${this.signInHidden}>
-              <input id="in" type="submit" value="sign in" />
+            <span ?hidden=${this.signInHidden}>
+              <input type="submit" value="sign in" />
               <br />
-              <a href="#" id="switch-to-sign-up" @click="${this.switchToSignUp}"
-                >sign up instead</a
-              >
+              <a href="#" @click="${this.switchToSignUp}">sign up instead</a>
             </span>
 
-            <span id="sign-up" ?hidden=${this.signUpHidden}>
-              <input id="up" type="submit" value="sign up" />
+            <span ?hidden=${this.signUpHidden}>
+              <input type="submit" value="sign up" />
               <br />
-              <a href="#" id="switch-to-sign-in" @click="${this.switchToSignIn}"
-                >sign in instead</a
-              >
+              <a href="#" @click="${this.switchToSignIn}">sign in instead</a>
             </span>
           </div>
           <input
-            id="sign-out"
             ?hidden=${this.signOutHidden}
             type="button"
             value="sign out"
