@@ -59,12 +59,14 @@ export class GunLogin extends LitElement {
             <span ?hidden=${this.userPassHidden}>
               <input
                 type="text"
+                name="username"
                 placeholder="username"
                 autocomplete="username"
                 @input="${this.usernameChanged}"
               />
               <input
                 type="password"
+                name="password"
                 placeholder="password"
                 autocomplete="${this.signInHidden
                   ? 'current-password'
