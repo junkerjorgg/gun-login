@@ -5,7 +5,7 @@ export class GunLogin extends LitElement {
     return {
       gun: { type: Object },
       user: { type: Object },
-      alias: { type: String },
+      username: { type: String },
       password: { type: String },
       signInHidden: { type: Boolean },
       signUpHidden: { type: Boolean },
@@ -40,11 +40,11 @@ export class GunLogin extends LitElement {
           <div>
             <span id="user-pass" ?hidden=${this.userPassHidden}>
               <input
-                id="alias"
+                id="username"
                 type="text"
                 placeholder="username"
                 autocomplete="username"
-                @keyup="${this.aliasChanged}"
+                @keyup="${this.usernameChanged}"
               />
               <input
                 id="pass"
@@ -100,8 +100,8 @@ export class GunLogin extends LitElement {
    * @memberof GunLogin
    */
   signUp() {
-    this.user.create(this.alias, this.password);
-    this.user.auth(this.alias, this.password);
+    this.user.create(this.username, this.password);
+    this.user.auth(this.username, this.password);
   }
 
   /**
@@ -109,7 +109,11 @@ export class GunLogin extends LitElement {
    * @memberof GunLogin
    */
   signIn() {
-    this.user.auth(this.alias, this.password, this.userIsLoggedIn.bind(this));
+    this.user.auth(
+      this.username,
+      this.password,
+      this.userIsLoggedIn.bind(this),
+    );
   }
 
   /**
@@ -124,13 +128,13 @@ export class GunLogin extends LitElement {
   }
 
   /**
-   * Alias changed event handler
+   * Username changed event handler
    *
    * @param {Event} event
    * @memberof GunLogin
    */
-  aliasChanged(event) {
-    this.alias = event.target.value;
+  usernameChanged(event) {
+    this.username = event.target.value;
     this.handleEnterKey(event);
   }
 
