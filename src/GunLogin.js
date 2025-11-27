@@ -22,15 +22,33 @@ export class GunLogin extends LitElement {
     `;
   }
 
-  firstUpdated() {
-    // TODO: This does not seem to work, so leaving it out for now.
-    // this.gun.on('auth', this.userIsLoggedIn.bind(this));
-    // this.gun.on('leave', this.userIsLoggedOut.bind(this));
-    if (this.user.is) {
-      this.userIsLoggedIn();
-    } else {
-      this.userIsLoggedOut();
+  constructor() {
+    super();
+    this._gun = null;
+    this.user = null;
+    this.username = '';
+    this.password = '';
+    this.userIsLoggedOut();
+  }
+
+  get gun() {
+    return this._gun;
+  }
+
+  set gun(newGun) {
+    const oldGun = this._gun;
+    if (oldGun === newGun) return;
+
+    this._gun = newGun;
+
+    if (this._gun) {
+      this._gun.on('auth', this.userIsLoggedIn.bind(this));
+      const user = this._gun.user();
+      if (user && user.is) {
+        this.userIsLoggedIn();
+      }
     }
+    this.requestUpdate('gun', oldGun);
   }
 
   render() {
