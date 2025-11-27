@@ -54,7 +54,7 @@ export class GunLogin extends LitElement {
   render() {
     return html`
       <main>
-        <form autocomplete="on">
+        <form autocomplete="on" @submit="${this._handleFormSubmit}">
           <div>
             <span id="user-pass" ?hidden=${this.userPassHidden}>
               <input
@@ -62,7 +62,7 @@ export class GunLogin extends LitElement {
                 type="text"
                 placeholder="username"
                 autocomplete="username"
-                @keyup="${this.usernameChanged}"
+                @input="${this.usernameChanged}"
               />
               <input
                 id="pass"
@@ -71,17 +71,12 @@ export class GunLogin extends LitElement {
                 autocomplete="${this.signInHidden
                   ? 'current-password'
                   : 'new-password'}"
-                @keyup="${this.passwordChanged}"
+                @input="${this.passwordChanged}"
               />
             </span>
 
             <span id="sign-in" ?hidden=${this.signInHidden}>
-              <input
-                id="in"
-                type="button"
-                value="sign in"
-                @click="${this.signIn}"
-              />
+              <input id="in" type="submit" value="sign in" />
               <br />
               <a href="#" id="switch-to-sign-up" @click="${this.switchToSignUp}"
                 >sign up instead</a
@@ -89,12 +84,7 @@ export class GunLogin extends LitElement {
             </span>
 
             <span id="sign-up" ?hidden=${this.signUpHidden}>
-              <input
-                id="up"
-                type="button"
-                value="sign up"
-                @click="${this.signUp}"
-              />
+              <input id="up" type="submit" value="sign up" />
               <br />
               <a href="#" id="switch-to-sign-in" @click="${this.switchToSignIn}"
                 >sign in instead</a
@@ -153,7 +143,6 @@ export class GunLogin extends LitElement {
    */
   usernameChanged(event) {
     this.username = event.target.value;
-    this.handleEnterKey(event);
   }
 
   /**
@@ -164,22 +153,19 @@ export class GunLogin extends LitElement {
    */
   passwordChanged(event) {
     this.password = event.target.value;
-    this.handleEnterKey(event);
   }
 
   /**
-   * Enter key event handler
-   *
+   * Form submit event handler
    * @param {Event} event
    * @memberof GunLogin
    */
-  handleEnterKey(event) {
-    if (event.key === 'Enter') {
-      if (this.signInHidden) {
-        this.signUp();
-      } else {
-        this.signIn();
-      }
+  _handleFormSubmit(event) {
+    event.preventDefault();
+    if (this.signInHidden) {
+      this.signUp();
+    } else {
+      this.signIn();
     }
   }
 
