@@ -1,3 +1,10 @@
+# [1.8.0](https://github.com/junkerjorgg/gun-login/compare/v1.7.0...v1.8.0) (2025-11-27)
+
+
+### Features
+
+* **GunLogin:** remove unnecessary ids to avoid duplicate id warnings in DevTools ([c38d39d](https://github.com/junkerjorgg/gun-login/commit/c38d39d29eb57a7a66145a145de7f7161b092423))
+
 # [1.7.0](https://github.com/junkerjorgg/gun-login/compare/v1.6.0...v1.7.0) (2025-11-27)
 
 

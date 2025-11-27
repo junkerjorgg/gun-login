@@ -3,7 +3,7 @@
   "description": "Webcomponent gun-login following open-wc recommendations",
   "license": "MIT",
   "author": "gun-login",
-  "version": "1.7.0",
+  "version": "1.8.0",
   "type": "module",
   "main": "index.js",
   "module": "index.js",
