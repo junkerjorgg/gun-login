@@ -1,3 +1,11 @@
+# [1.9.0](https://github.com/junkerjorgg/gun-login/compare/v1.8.0...v1.9.0) (2025-12-05)
+
+
+### Features
+
+* **GunLogin:** detect that user is logged in on page load ([1ed0315](https://github.com/junkerjorgg/gun-login/commit/1ed03155e852221f52fc0a0d36c7e73a86ffbc6f))
+* **GunLogin:** use standard form design to improve autofill handling ([49c396d](https://github.com/junkerjorgg/gun-login/commit/49c396dbdb097e57a1692b92234bd2761deaaf4d))
+
 # [1.8.0](https://github.com/junkerjorgg/gun-login/compare/v1.7.0...v1.8.0) (2025-11-27)
 
 
