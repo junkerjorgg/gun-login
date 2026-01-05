@@ -1,3 +1,10 @@
+# [1.11.0](https://github.com/junkerjorgg/gun-login/compare/v1.10.0...v1.11.0) (2026-01-05)
+
+
+### Features
+
+* **GunLogin:** emit event containing username on logout ([4279cbd](https://github.com/junkerjorgg/gun-login/commit/4279cbd5fde8ea8586e18c60c343c3a83cd1d33b))
+
 # [1.10.0](https://github.com/junkerjorgg/gun-login/compare/v1.9.0...v1.10.0) (2026-01-05)
 
 
