@@ -207,6 +207,13 @@ export class GunLogin extends LitElement {
    * Perform tasks after the user logs in
    */
   userIsLoggedIn() {
+    this.dispatchEvent(
+      new CustomEvent('user-is-logged-in', {
+        detail: {
+          username: this.username,
+        },
+      }),
+    );
     localStorage.setItem('hasLoggedIn', true);
     this.userPassHidden = true;
     this.signInHidden = true;
