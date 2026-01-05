@@ -1,3 +1,11 @@
+# [1.10.0](https://github.com/junkerjorgg/gun-login/compare/v1.9.0...v1.10.0) (2026-01-05)
+
+
+### Features
+
+* **GunLogin:** emit event with username on login ([93e474b](https://github.com/junkerjorgg/gun-login/commit/93e474b6aeff765d0043e66eaaceca266fd69d40))
+* **GunLogin:** emit event with username on login ([e447f72](https://github.com/junkerjorgg/gun-login/commit/e447f72c21331279a08d4c85b821475fe939ced4))
+
 # [1.9.0](https://github.com/junkerjorgg/gun-login/compare/v1.8.0...v1.9.0) (2025-12-05)
 
 
