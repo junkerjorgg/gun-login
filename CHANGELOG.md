@@ -1,3 +1,10 @@
+# [1.12.0](https://github.com/junkerjorgg/gun-login/compare/v1.11.0...v1.12.0) (2026-01-15)
+
+
+### Features
+
+* **GunLogin:** replace sign in & sign up links/modes with two buttons with those names ([378b25f](https://github.com/junkerjorgg/gun-login/commit/378b25ff9284a655d361d2ae7fcd695aba80427d))
+
 # [1.11.0](https://github.com/junkerjorgg/gun-login/compare/v1.10.0...v1.11.0) (2026-01-05)
 
 
