@@ -7,8 +7,7 @@ export class GunLogin extends LitElement {
       user: { type: Object },
       username: { type: String },
       password: { type: String },
-      signInHidden: { type: Boolean },
-      signUpHidden: { type: Boolean },
+      // signInHidden and signUpHidden removed as we show both buttons
       signOutHidden: { type: Boolean },
       userPassHidden: { type: Boolean },
     };
@@ -68,29 +67,18 @@ export class GunLogin extends LitElement {
                 type="password"
                 name="password"
                 placeholder="password"
-                autocomplete="${this.signInHidden
-                  ? 'current-password'
-                  : 'new-password'}"
+                autocomplete="current-password"
                 @input="${this.passwordChanged}"
               />
-            </span>
-
-            <span ?hidden=${this.signInHidden}>
-              <input type="submit" value="sign in" />
               <br />
-              <a href="#" @click="${this.switchToSignUp}">sign up instead</a>
-            </span>
-
-            <span ?hidden=${this.signUpHidden}>
-              <input type="submit" value="sign up" />
-              <br />
-              <a href="#" @click="${this.switchToSignIn}">sign in instead</a>
+              <input type="submit" value="Sign In" />
+              <input type="submit" value="Sign Up" />
             </span>
           </div>
           <input
             ?hidden=${this.signOutHidden}
             type="button"
-            value="sign out"
+            value="Sign Out"
             @click="${this.signOut}"
           />
         </form>
@@ -157,35 +145,12 @@ export class GunLogin extends LitElement {
    */
   _handleFormSubmit(event) {
     event.preventDefault();
-    if (this.signInHidden) {
+    const action = event.submitter.value;
+    if (action === 'Sign Up') {
       this.signUp();
     } else {
       this.signIn();
     }
-  }
-
-  /**
-   * Switch to sign in event handler
-   *
-   * @param {Event} event
-   * @memberof GunLogin
-   */
-  switchToSignIn(event) {
-    event.preventDefault();
-    this.signInHidden = false;
-    this.signUpHidden = true;
-  }
-
-  /**
-   * Switch to sign up event handler
-   *
-   * @param {Event} event
-   * @memberof GunLogin
-   */
-  switchToSignUp(event) {
-    event.preventDefault();
-    this.signInHidden = true;
-    this.signUpHidden = false;
   }
 
   /**
@@ -200,13 +165,6 @@ export class GunLogin extends LitElement {
       }),
     );
     this.userPassHidden = false;
-    if (localStorage.getItem('hasLoggedIn')) {
-      this.signInHidden = false;
-      this.signUpHidden = true;
-    } else {
-      this.signInHidden = true;
-      this.signUpHidden = false;
-    }
     this.signOutHidden = true;
   }
 
@@ -223,8 +181,6 @@ export class GunLogin extends LitElement {
     );
     localStorage.setItem('hasLoggedIn', true);
     this.userPassHidden = true;
-    this.signInHidden = true;
-    this.signUpHidden = true;
     this.signOutHidden = false;
   }
 }
